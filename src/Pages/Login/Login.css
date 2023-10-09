@@ -1,0 +1,56 @@
+.login > img {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+  width: 14%;
+}
+
+.login {
+  display: flex;
+  flex-direction: column; /* Set the flex direction to column */
+  align-items: center; /* Center vertically */
+}
+
+.blackLine {
+  background-color: #d9dadc;
+  height: 2px;
+  width: 100%;
+}
+
+.login > a {
+  background-color: #1877f2;
+  padding: 8px;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 30%;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none; /* Remove underlines and styling */
+}
+
+.login > .appleAnchor {
+  display: flex;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-decoration: none; /* Remove underlines and styling */
+  background-color: black;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px;
+}
+
+.login > .googleAnchor {
+  background-color: white;
+  padding: 8px;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 30%;
+  color: black;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none; /* Remove underlines and styling */
+  border: 0.7px solid #000
+}
+.appleIcon {
+  height: 35px;
+}
