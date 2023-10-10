@@ -1,8 +1,29 @@
 import React from "react";
 import "./Login.css";
 import { SocialIcon } from "react-social-icons";
+import {
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  TextField,
+} from "@mui/material";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 function LoginPage() {
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
   return (
     <div className="login">
       {/* Spotify Logo */}
@@ -39,6 +60,49 @@ function LoginPage() {
         />
         CONTINUE WITH GOOGLE
       </a>
+      {/* Or line */}
+      <div className="orLineDiv">
+        <div className="orLine" />
+        <h3>OR</h3>
+        <div className="orLine" />
+      </div>
+      {/* Email adress */}
+      <TextField
+        label="Email adress or username"
+        className="emailInput"
+        margin="normal"
+      />
+      {/* Password */}
+      <FormControl sx={{ m: 1, width: "30%" }} variant="outlined">
+        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+        <OutlinedInput
+          id="outlined-adornment-password"
+          type={showPassword ? "text" : "password"}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+                edge="end"
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          }
+          label="Password"
+        />
+      </FormControl>
+      {/* Forgot your password */}
+      <a className="forgotPasswordAnchor">Forgot your password?</a>
+
+      {/* Login anchor */}
+      <a className="loginButton">LOG IN</a>
+      {/* Seperation line */}
+      <div className="seperationLine"/>
+      <h3 style={{marginTop: 20}}>Don't have an account?</h3>
+      {/* Sign-up anchor */}
+      <a className="signupAnchor">SIGN UP FOR SPOTIFY</a>
     </div>
   );
 }

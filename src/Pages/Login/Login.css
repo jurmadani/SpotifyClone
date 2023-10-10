@@ -16,6 +16,21 @@
   width: 100%;
 }
 
+.orLineDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:10px;
+}
+
+.orLine {
+  width: 25vh; /* Adjust the width as needed */
+  height: 2px; /* Adjust the height as needed */
+  background-color: #D9DADC; /* Add a background color or border for visibility */
+  margin-right: 20px; /* Optional spacing between the div and h2 */
+  margin-left: 20px;
+}
+
 .login > a {
   background-color: #1877f2;
   padding: 8px;
@@ -54,3 +69,41 @@
 .appleIcon {
   height: 35px;
 }
+
+.emailInput{
+  width: 30%;
+}
+
+.login > .forgotPasswordAnchor {
+  background-color: white;
+  color: black;
+  text-align: left;
+}
+
+.login > .loginButton {
+  color: black;
+  background-color: #1ED760;
+  width: 10%;
+  margin-left: 20%;
+}
+.checkBox {
+  display: flex;
+  align-items: center; /* Align the checkbox label vertically with the anchor */
+  justify-content: flex-start; /* Align the checkbox label to the left */
+}
+
+.seperationLine{
+  width: 32%; /* Adjust the width as needed */
+  height: 2px; /* Adjust the height as needed */
+  background-color: #D9DADC; /* Add a background color or border for visibility */
+  margin-top:20px;
+}
+
+.login > .signupAnchor {
+  background-color: white;
+  color:#6A6A6A;
+  border: solid 1px #6A6A6A;
+  padding-top:12px;
+  padding-bottom:12px;
+}
+
