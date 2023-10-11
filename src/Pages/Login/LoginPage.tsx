@@ -2,9 +2,7 @@ import React from "react";
 import "./Login.css";
 import { SocialIcon } from "react-social-icons";
 import {
-  Checkbox,
   FormControl,
-  FormControlLabel,
   IconButton,
   InputAdornment,
   InputLabel,
@@ -13,6 +11,7 @@ import {
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -99,10 +98,12 @@ function LoginPage() {
       {/* Login anchor */}
       <a className="loginButton">LOG IN</a>
       {/* Seperation line */}
-      <div className="seperationLine"/>
-      <h3 style={{marginTop: 20}}>Don't have an account?</h3>
+      <div className="seperationLine" />
+      <h3 style={{ marginTop: 20 }}>Don't have an account?</h3>
       {/* Sign-up anchor */}
-      <a className="signupAnchor">SIGN UP FOR SPOTIFY</a>
+      <Link to="/signup" className="signupAnchor">
+        <a>SIGN UP FOR SPOTIFY</a>
+      </Link>
     </div>
   );
 }

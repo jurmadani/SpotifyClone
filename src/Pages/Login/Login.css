@@ -20,13 +20,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
 .orLine {
   width: 25vh; /* Adjust the width as needed */
   height: 2px; /* Adjust the height as needed */
-  background-color: #D9DADC; /* Add a background color or border for visibility */
+  background-color: #d9dadc; /* Add a background color or border for visibility */
   margin-right: 20px; /* Optional spacing between the div and h2 */
   margin-left: 20px;
 }
@@ -64,13 +64,13 @@
   font-weight: 700;
   text-align: center;
   text-decoration: none; /* Remove underlines and styling */
-  border: 0.7px solid #000
+  border: 0.7px solid #000;
 }
 .appleIcon {
   height: 35px;
 }
 
-.emailInput{
+.emailInput {
   width: 30%;
 }
 
@@ -82,7 +82,7 @@
 
 .login > .loginButton {
   color: black;
-  background-color: #1ED760;
+  background-color: #1ed760;
   width: 10%;
   margin-left: 20%;
 }
@@ -92,18 +92,23 @@
   justify-content: flex-start; /* Align the checkbox label to the left */
 }
 
-.seperationLine{
+.seperationLine {
   width: 32%; /* Adjust the width as needed */
   height: 2px; /* Adjust the height as needed */
-  background-color: #D9DADC; /* Add a background color or border for visibility */
-  margin-top:20px;
+  background-color: #d9dadc; /* Add a background color or border for visibility */
+  margin-top: 20px;
 }
 
 .login > .signupAnchor {
   background-color: white;
-  color:#6A6A6A;
-  border: solid 1px #6A6A6A;
-  padding-top:12px;
-  padding-bottom:12px;
+  color: #6a6a6a;
+  border: solid 1px #6a6a6a;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  transition: transform 0.1s ease;
+  &:hover {
+    transform: scale(1.05); /* Adjust the scale factor as desired */
+    border: solid 1px black;
+    color :black;
+  }
 }
-
