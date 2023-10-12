@@ -49,6 +49,7 @@
 .signup > .signupBody > .goBackDiv > .text > a {
   color: #1ed760;
   font-weight: 600;
+  margin-left: 10px;
 }
 
 .footer {

@@ -1,0 +1,91 @@
+.step3Body {
+  margin: auto;
+  width: 35%;
+  margin-top: 20px;
+  height: 50vh;
+}
+
+.step3Body > .stepInfoBody > .backArrow {
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.2); /* Adjust the scale factor as desired */
+  }
+}
+
+.step3Body > .stepInfoBody {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.step3Body > .stepInfoBody > .stepInfoBody2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.step3Body > .centeredFormControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+}
+
+.step3Body > .centeredFormControl > .nameTextField {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.step3Body > .centeredFormControl > .dateOfBirthForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.step3Body > .centeredFormControl > .dateOfBirthForm > .dayTextField {
+  width: 20%;
+  margin: 15px;
+}
+
+.step3Body > .centeredFormControl > .dateOfBirthForm > .yearTextField {
+  width: 20%;
+}
+
+.step3Body > .centeredFormControl > .monthSelector {
+  margin-top: 10px;
+  width: 30%;
+}
+
+.step3Body > .centeredFormControl > .formControl > .nextAnchor {
+  color: #6a6a6a;
+  border: solid 1px #6a6a6a;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 15px;
+  transition: transform 0.1s ease;
+  &:hover {
+    transform: scale(1.05); /* Adjust the scale factor as desired */
+    border: solid 1px black;
+    color: black;
+  }
+}
+
+.step3Body > .centeredFormControl > .nextAnchor {
+  color: #6a6a6a;
+  border: solid 1px #6a6a6a;
+  text-align: center;
+  padding: 10px;
+  width: 60%;
+  border-radius: 20px;
+  margin-top: 15px;
+  transition: transform 0.1s ease;
+  &:hover {
+    transform: scale(1.05); /* Adjust the scale factor as desired */
+    border: solid 1px black;
+    color: black;
+  }
+}
