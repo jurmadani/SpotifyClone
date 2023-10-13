@@ -1,0 +1,5 @@
+1. Sign-up process: 
+- validation for fields
+- connecting with firebase
+- redux implement
+- continue with socials error modal
