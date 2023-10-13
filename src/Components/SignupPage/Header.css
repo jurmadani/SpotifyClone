@@ -2,7 +2,8 @@
     height: 10vh;
 }
 
-.header > img {
+
+.header > .Link > img {
     -webkit-filter: invert(1);
     filter: invert(1);
     width: 10%;
