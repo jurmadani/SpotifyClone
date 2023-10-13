@@ -11,7 +11,7 @@ export default function Step1Body({ setStepNumber }: Step1BodyType) {
     <div className="signupBody">
       <h1 className="headerText">Sign up to start listening</h1>
       <TextField
-        label="Email adress or username"
+        label="Email adress"
         className="emailInput"
         margin="normal"
       />
