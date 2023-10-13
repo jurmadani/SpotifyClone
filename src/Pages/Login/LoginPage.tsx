@@ -2,6 +2,12 @@ import React from "react";
 import "./Login.css";
 import { SocialIcon } from "react-social-icons";
 import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   FormControl,
   IconButton,
   InputAdornment,
@@ -23,8 +29,40 @@ function LoginPage() {
   ) => {
     event.preventDefault();
   };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="login">
+      {/* Social media alert pop-up modal */}
+      <div>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Currently our third-party login via social media is disabled.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} autoFocus>
+              OK
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+
       {/* Spotify Logo */}
       <img
         src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
@@ -33,7 +71,7 @@ function LoginPage() {
       {/* Black line */}
       <div className="blackLine" />
       {/* Facebook login */}
-      <a>
+      <a onClick={handleClickOpen}>
         <SocialIcon
           network="facebook"
           bgColor="white"
@@ -43,7 +81,7 @@ function LoginPage() {
         CONTINUE WITH FACEBOOK
       </a>
       {/* Apple login */}
-      <a className="appleAnchor">
+      <a className="appleAnchor" onClick={handleClickOpen}>
         <img
           src="https://i.pinimg.com/564x/5e/67/1c/5e671cbe6457e88c59d9f82b8270749d.jpg"
           alt=""
@@ -52,7 +90,7 @@ function LoginPage() {
         CONTINUE WITH APPLE
       </a>
       {/* Google login */}
-      <a className="googleAnchor">
+      <a className="googleAnchor" onClick={handleClickOpen}>
         <SocialIcon
           network="google"
           style={{ height: 35, width: 35, marginRight: 15 }}
