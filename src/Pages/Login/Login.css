@@ -44,7 +44,7 @@
   transition: transform 0.15s ease;
   &:hover {
     transform: scale(1.07); /* Adjust the scale factor as desired */
-    cursor: pointer
+    cursor: pointer;
   }
 }
 
@@ -129,4 +129,20 @@
     border: solid 1px black;
     color: black;
   }
+}
+
+.login > .errorBody {
+  margin-top: 20px;
+  height: 40px;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  font-weight: 500;
+  background-color: red;
+  color: white;
+}
+
+.login > .errorBody > p {
+  margin-left:9px;
 }

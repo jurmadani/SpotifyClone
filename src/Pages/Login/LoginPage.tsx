@@ -1,13 +1,13 @@
 import React from "react";
 import "./Login.css";
 import { SocialIcon } from "react-social-icons";
+import InfoIcon from "@mui/icons-material/Info";
 import {
   Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle,
   FormControl,
   IconButton,
   InputAdornment,
@@ -18,20 +18,20 @@ import {
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { HandleSignIn } from "../../controllers/HandleSignIn";
+import { validateEmail } from "../../controllers/ValidateEmail";
 
 function LoginPage() {
   const [showPassword, setShowPassword] = React.useState(false);
-
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
   };
-
   const [open, setOpen] = React.useState(false);
-
+  const [signInError, setSignInError] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -39,6 +39,14 @@ function LoginPage() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  {
+    /* email and password states */
+  }
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [emailError, setEmailError] = React.useState(false);
+  const [passwordError, setPasswordError] = React.useState(false);
 
   return (
     <div className="login">
@@ -70,6 +78,15 @@ function LoginPage() {
       />
       {/* Black line */}
       <div className="blackLine" />
+      {/* Error message */}
+
+      {signInError && (
+        <div className="errorBody">
+          <InfoIcon />
+          <p>Incorrect email or password</p>
+        </div>
+      )}
+
       {/* Facebook login */}
       <a onClick={handleClickOpen}>
         <SocialIcon
@@ -105,6 +122,10 @@ function LoginPage() {
       </div>
       {/* Email adress */}
       <TextField
+        onChange={(event) => {
+          setEmail(event.target.value);
+        }}
+        error={emailError}
         label="Email adress or username"
         className="emailInput"
         margin="normal"
@@ -114,6 +135,8 @@ function LoginPage() {
         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
         <OutlinedInput
           id="outlined-adornment-password"
+          error={passwordError}
+          onChange={(event) => setPassword(event.target.value)}
           type={showPassword ? "text" : "password"}
           endAdornment={
             <InputAdornment position="end">
@@ -134,7 +157,23 @@ function LoginPage() {
       <a className="forgotPasswordAnchor">Forgot your password?</a>
 
       {/* Login anchor */}
-      <a className="loginButton">LOG IN</a>
+      <a
+        className="loginButton"
+        onClick={async () => {
+          if (email === "" || password === "") {
+            if (email === "") setEmailError(true);
+            if (password === "") setPasswordError(true);
+          } else {
+            setEmailError(false);
+            setPasswordError(false);
+            await HandleSignIn(email, password, setSignInError);
+          }
+
+         
+        }}
+      >
+        LOG IN
+      </a>
       {/* Seperation line */}
       <div className="seperationLine" />
       <h3 style={{ marginTop: 20 }}>Don't have an account?</h3>
