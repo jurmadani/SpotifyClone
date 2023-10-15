@@ -168,8 +168,6 @@ function LoginPage() {
             setPasswordError(false);
             await HandleSignIn(email, password, setSignInError);
           }
-
-         
         }}
       >
         LOG IN

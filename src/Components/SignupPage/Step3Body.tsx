@@ -2,6 +2,8 @@ import React from "react";
 import "./Step3Body.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { FormControl, MenuItem, TextField } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { signupSlice } from "../../redux/signupSlice";
 
 type Step3BodyType = {
   setStepNumber: React.Dispatch<React.SetStateAction<number>>;
@@ -22,13 +24,23 @@ export default function Step3Body({ setStepNumber }: Step3BodyType) {
     { name: "November", value: 11 },
     { name: "December", value: 12 },
   ];
-
+  const dispatch = useDispatch();
+  const [name, setName] = React.useState("");
+  const [month, setMonth] = React.useState("");
+  const [day, setDay] = React.useState(-1);
+  const [year, setYear] = React.useState(-1);
   return (
     <div className="step3Body">
       <div className="stepInfoBody">
         {/* Go back icon */}
         <ArrowBackIosIcon
-          onClick={() => setStepNumber(2)}
+          onClick={() => {
+            dispatch(signupSlice.actions.setName(""));
+            dispatch(signupSlice.actions.setMonth(""));
+            dispatch(signupSlice.actions.setDay(null));
+            dispatch(signupSlice.actions.setYear(null));
+            setStepNumber(2);
+          }}
           className="backArrow"
         />
         {/* Step number */}
@@ -40,6 +52,7 @@ export default function Step3Body({ setStepNumber }: Step3BodyType) {
       <div className="centeredFormControl">
         {/* name field */}
         <TextField
+          onChange={(event) => setName(event.target.value)}
           helperText="This name will appear on your profile"
           id="demo-helper-text-misaligned"
           label="Name"
@@ -52,19 +65,40 @@ export default function Step3Body({ setStepNumber }: Step3BodyType) {
             className="monthSelector"
             id="outlined-select-month"
             select
+            onChange={(event) => {
+              setMonth(event.target.value);
+            }}
             defaultValue="Month"
           >
             {months.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
+              <MenuItem key={option.value} value={option.name}>
                 {option.name}
               </MenuItem>
             ))}
           </TextField>
-          {/* day field */} <TextField label="Day" className="dayTextField" />
+          {/* day field */}{" "}
+          <TextField
+            label="Day"
+            className="dayTextField"
+            onChange={(event) => setDay(parseInt(event.target.value))}
+          />
           {/* year field */}{" "}
-          <TextField label="Year" className="yearTextField" />
+          <TextField
+            label="Year"
+            className="yearTextField"
+            onChange={(event) => setYear(parseInt(event.target.value))}
+          />
         </div>
-        <a className="nextAnchor" onClick={() => setStepNumber(4)}>
+        <a
+          className="nextAnchor"
+          onClick={() => {
+            dispatch(signupSlice.actions.setName(name));
+            dispatch(signupSlice.actions.setMonth(month));
+            dispatch(signupSlice.actions.setDay(day));
+            dispatch(signupSlice.actions.setYear(year));
+            setStepNumber(4);
+          }}
+        >
           Next
         </a>
       </div>

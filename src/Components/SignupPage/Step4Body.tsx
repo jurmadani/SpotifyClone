@@ -1,12 +1,20 @@
 import React from "react";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import "./Step4Body.css";
+import { Waveform } from "@uiball/loaders";
+import { useSelector } from "react-redux";
+import { signupSliceType } from "../../types";
+import { HandleSignUp } from "../../controllers/HandleSignUp";
 
 type Step4BodyType = {
   setStepNumber: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export default function Step4Body({ setStepNumber }: Step4BodyType) {
+  const [loading, setLoading] = React.useState(false);
+  const signupState: signupSliceType = useSelector(
+    (state: any) => state.signup
+  );
   return (
     <div className="step4Body">
       <div className="stepInfoBody">
@@ -33,9 +41,23 @@ export default function Step4Body({ setStepNumber }: Step4BodyType) {
         </p>
         <a
           className="signupAnchor"
-          onClick={() => console.log("Sign-up in process...")}
+          onClick={async () => {
+            setLoading(true);
+            await HandleSignUp(
+              setLoading,
+              signupState.email,
+              signupState.password,
+              signupState.name,
+              signupState.birthDate.month,
+              signupState.birthDate.day,
+              signupState.birthDate.year
+            );
+          }}
         >
-          Sign up
+          {loading && (
+            <Waveform size={30} speed={1} lineWeight={3.5} color="#1ed760" />
+          )}
+          {!loading && <p>Next</p>}
         </a>
       </div>
     </div>

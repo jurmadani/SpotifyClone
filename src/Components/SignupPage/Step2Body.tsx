@@ -10,6 +10,8 @@ import {
   OutlinedInput,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useDispatch } from "react-redux";
+import { signupSlice } from "../../redux/signupSlice";
 
 type Step2BodyType = {
   setStepNumber: React.Dispatch<React.SetStateAction<number>>;
@@ -17,9 +19,10 @@ type Step2BodyType = {
 
 export default function Step2Body({ setStepNumber }: Step2BodyType) {
   const [showPassword, setShowPassword] = React.useState(false);
-
+  const [password, setPassword] = React.useState("");
+  const [passwordError, setPasswordError] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
+  const dispatch = useDispatch();
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
@@ -31,7 +34,9 @@ export default function Step2Body({ setStepNumber }: Step2BodyType) {
       <div className="stepInfoBody">
         {/* Go back icon */}
         <ArrowBackIosIcon
-          onClick={() => setStepNumber(1)}
+          onClick={() => {
+            dispatch(signupSlice.actions.setPassword(""))
+            setStepNumber(1)}}
           className="backArrow"
         />
         {/* Step number */}
@@ -52,6 +57,8 @@ export default function Step2Body({ setStepNumber }: Step2BodyType) {
           </InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
+            error={passwordError}
+            onChange={(event) => setPassword(event.target.value)}
             type={showPassword ? "text" : "password"}
             endAdornment={
               <InputAdornment position="end">
@@ -76,10 +83,20 @@ export default function Step2Body({ setStepNumber }: Step2BodyType) {
               fontSize: 13,
             }}
           >
-            The password must contain at least 8 characters. We recommend
-            including at least 1 number and 1 special character
+            We recommand that the password must contain at least 8 characters. We recommend
+            including at least 1 number and 1 special character.  
           </text>
-          <a className="nextAnchor" onClick={() => setStepNumber(3)}>
+          <a
+            className="nextAnchor"
+            onClick={() => {
+              if (password === "") setPasswordError(true);
+              else {
+                setPasswordError(false);
+                dispatch(signupSlice.actions.setPassword(password));
+                setStepNumber(3);
+              }
+            }}
+          >
             Next
           </a>
         </FormControl>
