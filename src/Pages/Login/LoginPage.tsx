@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { HandleSignIn } from "../../controllers/HandleSignIn";
 import { validateEmail } from "../../controllers/ValidateEmail";
@@ -30,6 +30,7 @@ function LoginPage() {
   ) => {
     event.preventDefault();
   };
+  const navigateHook = useNavigate();
   const [open, setOpen] = React.useState(false);
   const [signInError, setSignInError] = React.useState(false);
   const handleClickOpen = () => {
@@ -166,7 +167,7 @@ function LoginPage() {
           } else {
             setEmailError(false);
             setPasswordError(false);
-            await HandleSignIn(email, password, setSignInError);
+            await HandleSignIn(email, password, setSignInError,navigateHook);
           }
         }}
       >
