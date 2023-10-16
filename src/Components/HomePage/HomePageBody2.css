@@ -1,12 +1,12 @@
 .homepage2Body {
-  height: 45.33vh;
+  height: 65.33vh;
   background-color: white;
 }
 
 .homepage2Body > .title {
   display: flex;
   justify-content: center;
-  padding-top: 40px;
+  padding-top: 5%;
 }
 
 .homepage2Body > .horizontal-list {
@@ -18,7 +18,7 @@
 
 .homepage2Body > .horizontal-list > .list-item {
   text-align: center; /* Center align content within each item */
-  margin: 30px 32px; /* Adjust margin for spacing between items */
+  margin: 6% 32px; /* Adjust margin for spacing between items */
   padding: 10px; /* Add padding for better spacing */
 }
 .homepage2Body > .horizontal-list > .list-item > h2 {

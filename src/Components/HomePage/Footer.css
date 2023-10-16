@@ -1,4 +1,47 @@
-.footerBody{
-    height:15vh;
-    background-color: chartreuse;
+.body {
+  background-color: black;
+}
+
+.footerBody {
+  height: 32.33vh;
+  background-color: black;
+  display: flex;
+}
+
+.footerBody > .spotifyLogo {
+  width: 12%;
+  height: fit-content;
+  margin-top: 3%;
+  margin-left: 4%;
+}
+
+.footerBody > .list {
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  margin-left: 3%;
+}
+
+.footerBody > .list > p {
+  color: white;
+  margin-top: 15px;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.footerBody > .socialMediaBody {
+  margin-left: 35%;
+  margin-top: 5%;
+  display: flex;
+  gap: 20px;
+}
+
+.footerBody > .socialMediaBody > .socialIcon {
+  transition: transform 0.15s ease;
+  &:hover {
+    transform: scale(1.15); /* Adjust the scale factor as desired */
+    cursor: pointer;
+  }
 }
