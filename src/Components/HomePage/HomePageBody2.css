@@ -1,4 +1,30 @@
-.homepage2Body{
-    height: 30.33vh;
-    background-color: brown;
+.homepage2Body {
+  height: 45.33vh;
+  background-color: white;
 }
+
+.homepage2Body > .title {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.homepage2Body > .horizontal-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.homepage2Body > .horizontal-list > .list-item {
+  text-align: center; /* Center align content within each item */
+  margin: 30px 32px; /* Adjust margin for spacing between items */
+  padding: 10px; /* Add padding for better spacing */
+}
+.homepage2Body > .horizontal-list > .list-item > h2 {
+  margin-top: 10px;
+}
+.homepage2Body > .horizontal-list > .list-item > p {
+    margin-top: 10px;
+  }
+  

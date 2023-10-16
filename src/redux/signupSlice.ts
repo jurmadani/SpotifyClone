@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { signupSliceType } from "../types";
-import { act } from "react-dom/test-utils";
 
 const initialState: signupSliceType = {
     email: "",

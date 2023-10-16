@@ -16,7 +16,7 @@ export default function HomePageBody1() {
       </p>
       <div className="buttonsBody">
         <a className="getStartedAnchor">GET STARTED</a>
-        <a className="otherProjectsAnchor">SEE OTHER PROJECTS</a>
+        <a className="otherProjectsAnchor" href="https://github.com/jurmadani">SEE OTHER PROJECTS</a>
       </div>
     </div>
   );
