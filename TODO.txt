@@ -1,5 +1,6 @@
-1. Sign-up process: 
-- finish updating redux state via dispatching actions through signup process slice
-- create user at the end
-- start UI for home page
-    
+1. HomePage
+- Finish the rest of the UI
+- Create log-ut functionalitty ( reset user state in redux)
+2. Login
+-create login spinner loading animation while login function finishes 
+-update user state in redux after login

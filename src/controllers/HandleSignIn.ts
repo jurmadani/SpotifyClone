@@ -6,17 +6,21 @@ export async function HandleSignIn(
     email: string,
     password: string,
     setSignInError: React.Dispatch<React.SetStateAction<boolean>>,
-    navigateHook: NavigateFunction
+    navigateHook: NavigateFunction,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) {
     try {
         await signInWithEmailAndPassword(auth, email, password).then(() => {
             setSignInError(false);
+            setLoading(false);
             navigateHook("/home")
         });
+
 
 
     } catch {
 
         setSignInError(true);
+        setLoading(false)
     }
 }

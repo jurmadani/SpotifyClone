@@ -18,12 +18,12 @@ import {
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Link, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { HandleSignIn } from "../../controllers/HandleSignIn";
-import { validateEmail } from "../../controllers/ValidateEmail";
+import { Waveform } from "@uiball/loaders";
 
 function LoginPage() {
   const [showPassword, setShowPassword] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>
@@ -167,11 +167,21 @@ function LoginPage() {
           } else {
             setEmailError(false);
             setPasswordError(false);
-            await HandleSignIn(email, password, setSignInError,navigateHook);
+            setLoading(true)
+            await HandleSignIn(
+              email,
+              password,
+              setSignInError,
+              navigateHook,
+              setLoading
+            );
           }
         }}
       >
-        LOG IN
+        {loading && (
+          <Waveform size={30} speed={1} lineWeight={3.5} color="white" />
+        )}
+        {!loading && <p>LOG IN</p>}
       </a>
       {/* Seperation line */}
       <div className="seperationLine" />

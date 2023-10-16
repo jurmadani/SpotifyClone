@@ -146,3 +146,8 @@
 .login > .errorBody > p {
   margin-left:9px;
 }
+
+.login > .loginButton {
+  display:flex;
+  justify-content: center;
+}
