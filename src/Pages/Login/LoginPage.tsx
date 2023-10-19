@@ -20,6 +20,8 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Link, useNavigate } from "react-router-dom";
 import { HandleSignIn } from "../../controllers/HandleSignIn";
 import { Waveform } from "@uiball/loaders";
+import { getAccessToken } from "../../controllers/getAccessToken";
+import { useDispatch } from "react-redux";
 
 function LoginPage() {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -31,6 +33,7 @@ function LoginPage() {
     event.preventDefault();
   };
   const navigateHook = useNavigate();
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
   const [signInError, setSignInError] = React.useState(false);
   const handleClickOpen = () => {
@@ -167,7 +170,8 @@ function LoginPage() {
           } else {
             setEmailError(false);
             setPasswordError(false);
-            setLoading(true)
+            setLoading(true);
+            await getAccessToken(dispatch);
             await HandleSignIn(
               email,
               password,

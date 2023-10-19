@@ -1,6 +1,6 @@
-1. HomePage
-- Finish the rest of the UI
-- Create log-ut functionalitty ( reset user state in redux)
-2. Login
--create login spinner loading animation while login function finishes 
--update user state in redux after login
+1. Player
+-finish body 
+-finish player footer
+2. Backend
+-use spotify api to search for music and find a way to play it 
+-add songs to playlist functionality

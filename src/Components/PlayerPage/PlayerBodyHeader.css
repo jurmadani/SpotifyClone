@@ -1,0 +1,35 @@
+.PlayerBodyHeader{
+    display:flex;
+    justify-content: space-between;
+    padding:3%;
+}
+
+.PlayerBodyHeaderLeft{
+    background-color: white;
+    color:gray;
+    border-radius:30px;
+    display: flex;
+    align-items: center;
+    padding:10px;
+    min-width: 70px;
+    flex:0.5
+}
+
+.PlayerBodyHeaderLeft > input{
+ border: none;
+ outline: none;
+ width: 100%;
+ font-size: 17px;
+
+
+}
+
+.PlayerBodyHeaderRight{
+    display:flex;
+    align-items: center;
+}
+
+.PlayerBodyHeaderRight > h3{
+   margin-left:10px;
+   color:white
+}

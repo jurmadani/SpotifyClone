@@ -1,7 +1,9 @@
 import React from "react";
 import "./HomePageHeader.css";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePageHeader() {
+  const navigate = useNavigate()
   return (
     <div className="headerBody">
       <img
@@ -10,7 +12,7 @@ export default function HomePageHeader() {
         alt=""
       />
       <div className="headerOptions">
-        <a>Player</a>
+        <a onClick={() => navigate("/player")}>Player</a>
         <a>Profile </a>
         <p>|</p>
         <a className="logoutAnchor">Log out</a>
