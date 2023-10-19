@@ -54,6 +54,7 @@
   > .titleAndNumber
   > .titleAndArtists {
   text-align: left;
+  color: white;
 }
 .playerPageBody
   > .tracksBody
@@ -66,4 +67,18 @@
   color: #aaaaaa;
   font-size: 13px;
   text-align: left;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.playerPageBody > .dotSpinnerDiv {
+  display: flex;
+  margin-top:10%;
+  justify-content: center;
+}
+
+.playerPageBody > .tracksBody > tbody > tr > td {
+  color: #aaaaaa;
 }

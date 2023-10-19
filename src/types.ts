@@ -110,5 +110,9 @@ export type searchSliceType = {
 
 export type TrackComponentType = {
   track: Track;
-  id:number;
+  id: number;
+};
+
+export type PlayerBodyHeaderType = {
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };

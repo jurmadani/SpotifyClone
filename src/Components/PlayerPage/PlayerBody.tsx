@@ -4,13 +4,15 @@ import PlayerBodyHeader from "./PlayerBodyHeader";
 import { useSelector } from "react-redux";
 import { Track, searchSliceType } from "../../types";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import TrackComponent, { formatDuration } from "./TrackComponent";
+import { formatDuration } from "./TrackComponent";
 import ExplicitIcon from "@mui/icons-material/Explicit";
+import { DotSpinner } from "@uiball/loaders";
 
 export default function PlayerBody() {
   const tracksArray = useSelector(
     (state: any) => state.searchTrack.tracksArray
   );
+  const [loading, setLoading] = React.useState(false);
   const greetUserByTime = () => {
     const currentTime = new Date();
     const currentHour = currentTime.getHours();
@@ -27,13 +29,17 @@ export default function PlayerBody() {
   return (
     <div className="playerPageBody">
       {/* Header */}
-      <PlayerBodyHeader />
+      <PlayerBodyHeader setLoading={setLoading} />
       {/* Body */}
       {tracksArray.length === 0 ? (
         <div className="defaultBody">
           {/* If user didn't search nothing display the default body */}
           <h1>{greetUserByTime()}</h1>
           <p>start searching for music</p>
+        </div>
+      ) : loading ? (
+        <div className="dotSpinnerDiv">
+          <DotSpinner size={40} speed={0.9} color="grey" />
         </div>
       ) : (
         <table className="tracksBody">
