@@ -1,0 +1,20 @@
+.TrackComponentBody {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  &:hover{
+    background-color: grey;
+  }
+}
+
+.TrackComponentBody > .numberAndTitleBody {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  margin-right: 25px;
+  margin-left: 25px;
+  gap: 15px;
+}

@@ -1,6 +1,6 @@
 .playerPageBody {
   flex: 0.8;
-  background: linear-gradient(rgb(91, 87, 115), black);
+  background: linear-gradient(rgb(31, 31, 31), black);
 }
 
 .playerPageBody > .defaultBody {
@@ -18,25 +18,52 @@
   color: #b3b3b3;
 }
 
-.playerPageBody > .tracksBody > .tracksBodyHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: gray;
-  font-weight: 700;
-  font-size: 16px;
-  margin-right: 25px;
-  margin-left: 25px;
+.playerPageBody > .tracksBody {
+  width: 95%;
+  margin: auto;
+  margin-bottom: 120px;
 }
 
-.playerPageBody > .tracksBody > .tracksBodyHeader > .numberTitleBody {
+.playerPageBody > .tracksBody > thead > tr {
+  color: gray;
+}
+
+.tracksBody th {
+  border-bottom: 1px solid #282828; /* Add a 2px solid black border at the bottom */
+}
+
+.playerPageBody > .tracksBody > tbody > tr {
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  &:hover {
+    background-color: #2b2a2b;
+  }
+}
+
+.playerPageBody > .tracksBody > tbody > tr > .titleAndNumber {
   display: flex;
   align-items: center;
-  font-weight: 600;
-  gap: 15px;
+  gap: 10px;
 }
-.playerPageBody > .tracksBody > hr {
-  border: 1px solid #646464;
-  width: 98%;
-  margin: 10px auto;
+
+.playerPageBody
+  > .tracksBody
+  > tbody
+  > tr
+  > .titleAndNumber
+  > .titleAndArtists {
+  text-align: left;
+}
+.playerPageBody
+  > .tracksBody
+  > tbody
+  > tr
+  > .titleAndNumber
+  > .titleAndArtists
+  > .artistsBody
+  > .artistOfTheTrack {
+  color: #aaaaaa;
+  font-size: 13px;
+  text-align: left;
 }

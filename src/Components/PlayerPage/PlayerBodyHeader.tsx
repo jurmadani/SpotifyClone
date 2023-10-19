@@ -22,7 +22,7 @@ export default function PlayerBodyHeader() {
       "https://api.spotify.com/v1/search?q=" +
         searchInput +
         "&type=track" +
-        "&limit=6",
+        "&limit=25",
       songParameters
     )
       .then((response) => response.json())

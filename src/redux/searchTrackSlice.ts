@@ -3,7 +3,7 @@ import { searchSliceType } from "../types";
 
 const initialState: searchSliceType = {
     tracksArray: [],
-}
+};
 
 export const searchTrackSlice = createSlice({
     name: "searchTrack",
@@ -11,6 +11,7 @@ export const searchTrackSlice = createSlice({
     reducers: {
         setTracksArray: (state, action) => {
             state.tracksArray = action.payload;
-        }
-    }
-})
+            console.log("Tracks array state changed");
+        },
+    },
+});
