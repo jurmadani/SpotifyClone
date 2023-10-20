@@ -1,8 +1,67 @@
-.playerPageFooter{
-    position: fixed;
-    bottom:0;
-    height: 65px;
-    width: 100%;
-    background-color: #282828;
-    padding:20px;
+.playerPageFooter {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  height: 65px;
+  width: 100%;
+  background-color: #282828;
+  padding: 20px;
+}
+
+.playerPageFooter > .playerPageFooter_left {
+  display: flex;
+  align-items: center;
+  flex: 0.3;
+}
+
+.defaultPlaceholder {
+  width: 64px;
+  height: 64px;
+}
+
+.playerPageFooter > .playerPageFooter_center {
+  flex: 0.4;
+  padding: 0 100px;
+  color: #a7a7a7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 300px;
+}
+
+.shuffle,
+.skip_previous,
+.play,
+.skip_next,
+.repeat,
+.playlistPlay,
+.volumeDown {
+  transition: transform 0.15s ease;
+  &:hover {
+    color: white;
+    transform: scale(1.07); /* Adjust the scale factor as desired */
+  }
+}
+
+.playerPageFooter > .playerPageFooter_right {
+  flex: 0.3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #a7a7a7;
+}
+
+.currentTrackPlayingArtistsBody {
+  display: flex;
+  color: #aaaaaa;
+  margin-left: 15px;
+  font-size: 13px;
+}
+
+.currentTrackName {
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  margin-left: 15px;
 }

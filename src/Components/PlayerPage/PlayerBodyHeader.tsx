@@ -29,7 +29,16 @@ export default function PlayerBodyHeader({ setLoading }: PlayerBodyHeaderType) {
     )
       .then((response) => response.json())
       .then((data) => {
-        dispatch(searchTrackSlice.actions.setTracksArray(data.tracks.items));
+        if (data.tracks && data.tracks.items) {
+          dispatch(searchTrackSlice.actions.setTracksArray(data.tracks.items));
+        } else {
+          dispatch(searchTrackSlice.actions.setTracksArray([])); // Set an empty array if no tracks are found.
+        }
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        // Handle error or display a message to the user.
         setLoading(false);
       });
   };
@@ -66,10 +75,6 @@ export default function PlayerBodyHeader({ setLoading }: PlayerBodyHeaderType) {
           type="text"
           placeholder="What would you want to listen to?"
           onChange={handleInputChange}
-          onKeyDown={(event) => {
-            if (event.key === "Enter") {
-            }
-          }}
         />
       </div>
       <div className="PlayerBodyHeaderRight">

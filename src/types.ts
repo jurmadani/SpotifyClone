@@ -116,3 +116,12 @@ export type TrackComponentType = {
 export type PlayerBodyHeaderType = {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+export type playerSliceType = {
+  currentPlayingTrack: string,
+  currentPlayingTrackArtists: Artist[],
+  currentPlayingTrackImage: string,
+  isTrackPlaying: boolean,
+
+
+}

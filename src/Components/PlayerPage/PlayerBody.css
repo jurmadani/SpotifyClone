@@ -75,10 +75,13 @@
 
 .playerPageBody > .dotSpinnerDiv {
   display: flex;
-  margin-top:10%;
+  margin-top: 10%;
   justify-content: center;
 }
 
 .playerPageBody > .tracksBody > tbody > tr > td {
   color: #aaaaaa;
+}
+.selected-row {
+  background-color: #5a595a; /* Set your desired background color for selected rows */
 }
