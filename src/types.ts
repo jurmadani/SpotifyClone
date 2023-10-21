@@ -1,4 +1,4 @@
-import { SvgIconTypeMap } from "@mui/material";
+import { SnackbarOrigin, SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 
 export type signupSliceType = {
@@ -118,10 +118,14 @@ export type PlayerBodyHeaderType = {
 };
 
 export type playerSliceType = {
-  currentPlayingTrack: string,
-  currentPlayingTrackArtists: Artist[],
-  currentPlayingTrackImage: string,
-  isTrackPlaying: boolean,
+  currentPlayingTrack: string;
+  currentPlayingTrackArtists: Artist[];
+  currentPlayingTrackImage: string;
+  isTrackPlaying: boolean;
+  doesTrackHavePreview: boolean | null;
+  currentPlayingTrackURL: string;
+};
 
-
+export interface State extends SnackbarOrigin {
+  open: boolean;
 }

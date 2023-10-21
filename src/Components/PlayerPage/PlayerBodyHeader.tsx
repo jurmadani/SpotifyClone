@@ -7,7 +7,6 @@ import { searchTrackSlice } from "../../redux/searchTrackSlice";
 import { PlayerBodyHeaderType } from "../../types";
 
 export default function PlayerBodyHeader({ setLoading }: PlayerBodyHeaderType) {
-  const [searchInput, setSearchInput] = React.useState("");
   const [searchTerm, setSearchTerm] = React.useState("");
   const dispatch = useDispatch();
   const accessToken = useSelector((state: any) => state.access.accessToken);

@@ -9,8 +9,10 @@ import ExplicitIcon from "@mui/icons-material/Explicit";
 import { DotSpinner } from "@uiball/loaders";
 import { PlayCircle } from "@mui/icons-material";
 import { playerSlice } from "../../redux/playerSlice";
+import { Alert } from "@mui/material";
 
 export default function PlayerBody() {
+
   const tracksArray = useSelector(
     (state: any) => state.searchTrack.tracksArray
   );
@@ -71,6 +73,7 @@ export default function PlayerBody() {
                   {rowHover === id ? (
                     <div
                       onClick={() => {
+
                         // set track name for player
                         dispatch(
                           playerSlice.actions.setCurrentPlayingTrack(item.name)
@@ -87,14 +90,28 @@ export default function PlayerBody() {
                             item.artists
                           )
                         );
+                        //has preview url
+                        dispatch(
+                          playerSlice.actions.setDoesTrackHavePreview(
+                            item.preview_url === null ? false : true
+                          )
+                        );
+                        //set preview url
+                        dispatch(
+                          playerSlice.actions.setCurrentTrackPlayingURL(
+                            item.preview_url !== null ? item.preview_url : ""
+                          )
+                        );
+
                         //set track is playing to TRUE
                         //... to do
                       }}
                     >
                       <PlayCircle />
+
                     </div>
                   ) : (
-                    id + 1
+                    <p>{id + 1}</p>
                   )}
                 </td>
                 <td className="titleAndNumber">

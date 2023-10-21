@@ -10,14 +10,24 @@ import {
 } from "@mui/icons-material";
 import { SkipPrevious } from "@mui/icons-material";
 import { Box, Grid, Slider } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { playerSliceType } from "../../types";
 import { grey } from "@mui/material/colors";
+import { playerSlice } from "../../redux/playerSlice";
 
 export default function PlayerPageFooter() {
   const playerState: playerSliceType = useSelector(
     (state: any) => state.player
   );
+
+  // Create a ref to the audio element
+  const audioRef = React.useRef<HTMLAudioElement | null>(null);
+  const dispatch = useDispatch();
+  const stopAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+  };
 
   return (
     <div className="playerPageFooter">
@@ -39,7 +49,9 @@ export default function PlayerPageFooter() {
           {playerState.currentPlayingTrack === "" ? (
             <p style={{ color: "white", marginLeft: 15 }}>No song playing</p>
           ) : (
-            <p className="currentTrackName">{playerState.currentPlayingTrack}</p>
+            <p className="currentTrackName">
+              {playerState.currentPlayingTrack}
+            </p>
           )}
           {/* Artists */}
           {playerState.currentPlayingTrackArtists.length !== 0 && (
@@ -59,7 +71,17 @@ export default function PlayerPageFooter() {
       <div className="playerPageFooter_center">
         <Shuffle className="shuffle" />
         <SkipPrevious className="skip_previous" />
-        <PlayCircleOutline fontSize="large" className="play" />
+        <div onClick={() => {
+          if(playerState.isTrackPlaying === true){
+              audioRef.current?.pause();
+              dispatch(playerSlice.actions.setIsTrackPlaying(false))
+          }else{
+              audioRef.current?.play();
+              dispatch(playerSlice.actions.setIsTrackPlaying(true))
+          }
+        }}>
+          <PlayCircleOutline fontSize="large" className="play" />
+        </div>
         <SkipNext className="skip_next" />
         <Repeat className="repeat" />
       </div>
@@ -76,6 +98,7 @@ export default function PlayerPageFooter() {
           </Grid>
         </Grid>
       </div>
+      <audio src={playerState.currentPlayingTrackURL} autoPlay ref={audioRef} />
     </div>
   );
 }

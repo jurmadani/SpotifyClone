@@ -1,7 +1,9 @@
 import React from "react";
 import "./HomePageBody1.css";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePageBody1() {
+  const navigate = useNavigate()
   return (
     <div className="homepage1Body">
       <h1 className="title">Spotify Clone</h1>
@@ -15,7 +17,7 @@ export default function HomePageBody1() {
         </a>
       </p>
       <div className="buttonsBody">
-        <a className="getStartedAnchor">GET STARTED</a>
+        <a className="getStartedAnchor" onClick={() => navigate("/player")}>GET STARTED</a>
         <a className="otherProjectsAnchor" href="https://github.com/jurmadani">SEE OTHER PROJECTS</a>
       </div>
     </div>
