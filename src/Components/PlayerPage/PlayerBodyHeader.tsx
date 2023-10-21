@@ -4,12 +4,25 @@ import "./PlayerBodyHeader.css";
 import { Avatar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { searchTrackSlice } from "../../redux/searchTrackSlice";
-import { PlayerBodyHeaderType } from "../../types";
+import {
+  PlayerBodyHeaderType,
+  accessSliceType,
+  spotifyUserSliceType,
+} from "../../types";
 
-export default function PlayerBodyHeader({ setLoading }: PlayerBodyHeaderType) {
-  const [searchTerm, setSearchTerm] = React.useState("");
+export default function PlayerBodyHeader({
+  setLoading,
+  searchInput,
+  setSearchInput,
+}: PlayerBodyHeaderType) {
   const dispatch = useDispatch();
-  const accessToken = useSelector((state: any) => state.access.accessToken);
+  const accessToken: accessSliceType = useSelector(
+    (state: any) => state.access.accessToken
+  );
+  const spotifyUser: spotifyUserSliceType = useSelector(
+    (state: any) => state.spotifyUser
+  );
+  console.log(spotifyUser.imageURL)
   const searchFunction = async (text: string) => {
     var songParameters = {
       method: "GET",
@@ -48,9 +61,9 @@ export default function PlayerBodyHeader({ setLoading }: PlayerBodyHeaderType) {
 
     // Clear any existing timeout whenever searchTerm changes.
     const timeoutId = setTimeout(() => {
-      if (searchTerm !== "") {
+      if (searchInput !== "") {
         setLoading(true);
-        searchFunction(searchTerm);
+        searchFunction(searchInput);
       } else {
         dispatch(searchTrackSlice.actions.setTracksArray([]));
       }
@@ -60,10 +73,10 @@ export default function PlayerBodyHeader({ setLoading }: PlayerBodyHeaderType) {
       // Cleanup the previous timeout to prevent multiple searches.
       clearTimeout(timeoutId);
     };
-  }, [searchTerm]);
+  }, [searchInput]);
 
   const handleInputChange = (event: any) => {
-    setSearchTerm(event.target.value);
+    setSearchInput(event.target.value);
   };
 
   return (
@@ -74,11 +87,12 @@ export default function PlayerBodyHeader({ setLoading }: PlayerBodyHeaderType) {
           type="text"
           placeholder="What would you want to listen to?"
           onChange={handleInputChange}
+          value={searchInput}
         />
       </div>
       <div className="PlayerBodyHeaderRight">
-        <Avatar />
-        <h3>Daniel Jurma</h3>
+        <Avatar src={spotifyUser.imageURL} />
+        <h3>{spotifyUser.displayName}</h3>
       </div>
     </div>
   );

@@ -21,9 +21,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { HandleSignIn } from "../../controllers/HandleSignIn";
 import { Waveform } from "@uiball/loaders";
 import { getAccessToken } from "../../controllers/getAccessToken";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import SpotifyWebApi from "spotify-web-api-js";
+import { accessSliceType } from "../../types";
+
 
 function LoginPage() {
+  const access: accessSliceType = useSelector((state: any) => state.access);
   const [showPassword, setShowPassword] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);

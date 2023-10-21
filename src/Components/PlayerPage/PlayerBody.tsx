@@ -2,7 +2,7 @@ import React from "react";
 import "./PlayerBody.css";
 import PlayerBodyHeader from "./PlayerBodyHeader";
 import { useDispatch, useSelector } from "react-redux";
-import { Track, searchSliceType } from "../../types";
+import { PlayerBodyType, Track, searchSliceType } from "../../types";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { formatDuration } from "./TrackComponent";
 import ExplicitIcon from "@mui/icons-material/Explicit";
@@ -11,7 +11,7 @@ import { PlayCircle } from "@mui/icons-material";
 import { playerSlice } from "../../redux/playerSlice";
 import { Alert } from "@mui/material";
 
-export default function PlayerBody() {
+export default function PlayerBody({searchInput, setSearchInput} : PlayerBodyType) {
 
   const tracksArray = useSelector(
     (state: any) => state.searchTrack.tracksArray
@@ -36,7 +36,7 @@ export default function PlayerBody() {
   return (
     <div className="playerPageBody">
       {/* Header */}
-      <PlayerBodyHeader setLoading={setLoading} />
+      <PlayerBodyHeader setLoading={setLoading} searchInput={searchInput} setSearchInput={setSearchInput}/>
       {/* Body */}
       {tracksArray.length === 0 ? (
         <div className="defaultBody">

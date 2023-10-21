@@ -7,6 +7,7 @@ import { store } from "./redux/store";
 import HomePage from "./Pages/Home/HomePage";
 import PlayerPage from "./Pages/Player/PlayerPage";
 
+
 function App() {
   return (
     <Provider store={store}>

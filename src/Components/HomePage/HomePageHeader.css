@@ -24,6 +24,10 @@
     font-weight: 600;
 }
 
+.headerBody > .headerOptions > .playerAnchor {
+    text-decoration: none;
+}
+
 .headerBody > .headerOptions > a {
     color:white;
     margin-right:45px;

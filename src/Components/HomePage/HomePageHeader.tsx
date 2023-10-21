@@ -1,9 +1,10 @@
 import React from "react";
 import "./HomePageHeader.css";
 import { useNavigate } from "react-router-dom";
+import { loginURL } from "../../backend/spotify-api";
 
 export default function HomePageHeader() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <div className="headerBody">
       <img
@@ -12,11 +13,10 @@ export default function HomePageHeader() {
         alt=""
       />
       <div className="headerOptions">
-        <a onClick={() => navigate("/player")}>Player</a>
+        <a href={loginURL} className="playerAnchor">Player</a>
         <a>Profile </a>
         <p>|</p>
         <a className="logoutAnchor">Log out</a>
-
       </div>
     </div>
   );

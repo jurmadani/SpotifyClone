@@ -1,9 +1,10 @@
 import React from "react";
 import "./HomePageBody1.css";
 import { useNavigate } from "react-router-dom";
+import { loginURL } from "../../backend/spotify-api";
 
 export default function HomePageBody1() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <div className="homepage1Body">
       <h1 className="title">Spotify Clone</h1>
@@ -17,8 +18,12 @@ export default function HomePageBody1() {
         </a>
       </p>
       <div className="buttonsBody">
-        <a className="getStartedAnchor" onClick={() => navigate("/player")}>GET STARTED</a>
-        <a className="otherProjectsAnchor" href="https://github.com/jurmadani">SEE OTHER PROJECTS</a>
+        <a className="getStartedAnchor" href={loginURL}>
+          GET STARTED
+        </a>
+        <a className="otherProjectsAnchor" href="https://github.com/jurmadani">
+          SEE OTHER PROJECTS
+        </a>
       </div>
     </div>
   );

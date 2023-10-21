@@ -32,6 +32,7 @@ export type SidebarOptionType = {
 
 export type accessSliceType = {
   accessToken: string;
+  accessTokenForUserInformation:string,
 };
 
 type Album = {
@@ -115,7 +116,16 @@ export type TrackComponentType = {
 
 export type PlayerBodyHeaderType = {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setSearchInput:  React.Dispatch<React.SetStateAction<string>>;
+  searchInput: string,
 };
+
+
+export type PlayerBodyType = {
+  setSearchInput:  React.Dispatch<React.SetStateAction<string>>;
+  searchInput: string,
+};
+
 
 export type playerSliceType = {
   currentPlayingTrack: string;
@@ -128,4 +138,9 @@ export type playerSliceType = {
 
 export interface State extends SnackbarOrigin {
   open: boolean;
+}
+
+export type spotifyUserSliceType = {
+  displayName:string,
+  imageURL:string
 }
