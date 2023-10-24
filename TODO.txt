@@ -1,2 +1,0 @@
-2. Finish homepage in the player body (discover weekly)
-4. Small changes to ui 
