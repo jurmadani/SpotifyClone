@@ -16,13 +16,13 @@ export default function PlayerBodyHeader({
   setSearchInput,
 }: PlayerBodyHeaderType) {
   const dispatch = useDispatch();
+  
   const accessToken: accessSliceType = useSelector(
     (state: any) => state.access.accessToken
   );
   const spotifyUser: spotifyUserSliceType = useSelector(
     (state: any) => state.spotifyUser
   );
-  console.log(spotifyUser.imageURL)
   const searchFunction = async (text: string) => {
     var songParameters = {
       method: "GET",

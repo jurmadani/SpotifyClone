@@ -10,6 +10,7 @@ import { getTokenFromURL } from "../../backend/spotify-api";
 import { accessSlice } from "../../redux/accessSlice";
 import SpotifyWebApi from "spotify-web-api-js";
 import { spotifyUserSlice } from "../../redux/spotifyUserSlice";
+import { getAccessToken } from "../../controllers/getAccessToken";
 
 const spotify = new SpotifyWebApi();
 
@@ -31,11 +32,18 @@ export default function PlayerPage() {
     if (token) {
       dispatch(accessSlice.actions.setAccessTokenForUserInformation(token));
       spotify.setAccessToken(token);
+
       spotify.getMe().then((user) => {
         dispatch(spotifyUserSlice.actions.setDisplayName(user.display_name));
         if (user.images !== undefined)
           dispatch(spotifyUserSlice.actions.setImageURL(user.images[0].url));
       });
+
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch(spotifyUserSlice.actions.setPlaylists(playlists.items));
+      });
+
+      getAccessToken(dispatch);
     }
   }, []);
 

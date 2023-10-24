@@ -18,6 +18,12 @@
   color: #b3b3b3;
 }
 
+.defaultBody > .tracksBody{
+  width: 95%;
+  margin: auto;
+  margin-bottom: 120px;
+}
+
 .playerPageBody > .tracksBody {
   width: 95%;
   margin: auto;
@@ -26,11 +32,19 @@
 
 .playerPageBody > .tracksBody > thead > tr {
   color: gray;
+
+}
+
+.defaultBody > .tracksBody > thead > tr {
+  color: gray;
+
 }
 
 .tracksBody th {
   border-bottom: 1px solid #282828; /* Add a 2px solid black border at the bottom */
 }
+
+
 
 .playerPageBody > .tracksBody > tbody > tr {
   text-align: center;
@@ -41,10 +55,35 @@
   }
 }
 
+.defaultBody > .tracksBody > tbody > tr {
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  &:hover {
+    background-color: #2b2a2b;
+  }
+}
+
+.defaultBody > .tracksBody > tbody >tr > .titleAndNumber {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .playerPageBody > .tracksBody > tbody > tr > .titleAndNumber {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.defaultBody
+  > .tracksBody
+  > tbody
+  > tr
+  > .titleAndNumber
+  > .titleAndArtists {
+  text-align: left;
+  color: white;
 }
 
 .playerPageBody
@@ -56,6 +95,24 @@
   text-align: left;
   color: white;
 }
+
+.defaultBody
+  > .tracksBody
+  > tbody
+  > tr
+  > .titleAndNumber
+  > .titleAndArtists
+  > .artistsBody
+  > .artistOfTheTrack {
+  color: #aaaaaa;
+  font-size: 13px;
+  text-align: left;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
 .playerPageBody
   > .tracksBody
   > tbody
@@ -79,9 +136,44 @@
   justify-content: center;
 }
 
+.defaultBody > .tracksBody {
+  margin-top: 20px;
+}
+
+.defaultBody > .tracksBody > tbody > tr > td {
+  color: #aaaaaa;
+}
+
 .playerPageBody > .tracksBody > tbody > tr > td {
   color: #aaaaaa;
 }
 .selected-row {
   background-color: #5a595a; /* Set your desired background color for selected rows */
+}
+
+.playerPageBody > .defaultBody > .playlistDetailsBody > .playlistImage{
+  height: 150px;
+  width: 150px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.playlistDetailsBody{
+  display: flex;
+  align-items: center;
+}
+
+.playlistTitle{
+  font-size: 80px;
+}
+
+.playlistTitle, .playlistDescription {
+  color:white;
+  margin-top: 0.5%;
+  padding-left: 20px;
+}
+
+.playlistDescription{
+  color: #B3B3B3;
+  font-weight: 500;
 }

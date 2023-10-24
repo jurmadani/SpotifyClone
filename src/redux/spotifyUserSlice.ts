@@ -4,6 +4,7 @@ import { spotifyUserSliceType } from "../types";
 const initialState: spotifyUserSliceType = {
   displayName: "",
   imageURL: "",
+  playlists: [],
 };
 
 export const spotifyUserSlice = createSlice({
@@ -15,6 +16,9 @@ export const spotifyUserSlice = createSlice({
     },
     setImageURL: (state, action) => {
       state.imageURL = action.payload;
+    },
+    setPlaylists: (state, action) => {
+      state.playlists = action.payload;
     },
   },
 });

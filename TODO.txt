@@ -1,6 +1,2 @@
-1. Player
--finish body 
--finish player footer
-2. Backend
--use spotify api to search for music and find a way to play it 
--add songs to playlist functionality
+2. Finish homepage in the player body (discover weekly)
+4. Small changes to ui 

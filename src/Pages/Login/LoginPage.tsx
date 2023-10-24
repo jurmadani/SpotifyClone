@@ -175,7 +175,7 @@ function LoginPage() {
             setEmailError(false);
             setPasswordError(false);
             setLoading(true);
-            await getAccessToken(dispatch);
+            //await getAccessToken(dispatch);
             await HandleSignIn(
               email,
               password,

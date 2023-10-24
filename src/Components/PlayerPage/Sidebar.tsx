@@ -4,12 +4,16 @@ import SidebarOption from "./SidebarOption";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
-import { PlayerBodyType } from "../../types";
+import { PlayerBodyType, spotifyUserSliceType } from "../../types";
+import { useSelector } from "react-redux";
 
 export default function Sidebar({
   searchInput,
   setSearchInput,
 }: PlayerBodyType) {
+  const spotifyUser: spotifyUserSliceType = useSelector(
+    (state: any) => state.spotifyUser
+  );
   return (
     <div className="sidebarBody">
       <img
@@ -24,6 +28,10 @@ export default function Sidebar({
       <SidebarOption title="Your library" Icon={LibraryMusicIcon} />
       <strong>PLAYLISTS</strong>
       <hr />
+      {spotifyUser?.playlists?.map((playlist) => (
+        //@ts-ignore
+        <SidebarOption title={playlist.name} />
+      ))}
     </div>
   );
 }
